@@ -1,4 +1,5 @@
 const express = require('express');
+const ExitPoint = require('../models/exitModel');
 
 const router = express.Router()
 
@@ -13,9 +14,22 @@ router.get('/:id', (req,res) => {
 });
 
 // POST /api/exits - create one exit
-router.post('/', (req,res) => {
+router.post('/', async (req,res) => {
     console.log(req.body);
-    res.json({message: 'POST /api/exits - create one exit'})
+    const {name, location, altitude, description, coordinates} = req.body;
+    
+    try {
+        const exit = await ExitPoint.create({
+            name, 
+            location,
+            altitude,
+            description,
+            coordinates 
+        })
+        res.status(200).json(exit)
+    } catch (error) {
+        res.status(400).json({message: error.message})
+    }
 });
 
 // DELETE /api/exits - delete one exit
