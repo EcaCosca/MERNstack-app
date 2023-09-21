@@ -4,8 +4,8 @@ const {
     createExitPoint,
     getAllExits,
     getSingleExit,
-    // deleteSingleExit,
-    // updateSingleExit
+    deleteSingleExit,
+    updateSingleExit
 } = require('../controllers/exitController');
 
 const router = express.Router()
@@ -20,13 +20,9 @@ router.get('/:id', getSingleExit);
 router.post('/', createExitPoint);
 
 // DELETE /api/exits - delete one exit
-router.delete('/:id', (req,res) => {
-    res.json({message: `DELETE /api/exits/:id - delete one exit :id is ${req.params.id}`})
-});
+router.delete('/:id', deleteSingleExit);
 
 // PUT /api/exits - update one exit
-router.put('/:id', (req,res) => {
-    res.json({message: `PUT /api/exits/:id - update one exit :id is ${req.params.id}`})
-});
+router.put('/:id', updateSingleExit);
 
 module.exports = router;

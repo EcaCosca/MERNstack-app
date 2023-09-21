@@ -11,7 +11,7 @@ const getSingleExit = async (req,res) => {
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({message: 'Exit not found'});
+        return res.status(404).json({message: 'Not a valid ID'});
     }
 
     const exit = await ExitPoint.findById(id);
@@ -57,12 +57,54 @@ const createExitPoint = async (req,res) => {
     }
 }
 
-// delete one exit
+const deleteSingleExit = async (req,res) => {
+    const { id } = req.params;
 
-// update one exit
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({message: 'Not a valid ID'});
+    }
+
+    const exit = await ExitPoint.findByIdAndDelete({_id: id});
+
+    if (!exit) {
+        return res.status(400).json({message: 'Exit not found'});
+    }
+
+    res.status(200).json({message: 'Exit deleted'});
+};
+
+const updateSingleExit = async (req,res) => {
+    const { id } = req.params;
+    const {
+        name, 
+        location,
+        altitude,
+        description,
+        coordinates,
+        type,
+        parking,
+        landing,
+        exitType,
+        suitRequired
+    } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({message: 'Not a valid ID'});
+    }
+
+    const exit = await ExitPoint.findOneAndUpdate({_id: id}, {...req.body});
+
+    if (!exit) {
+        return res.status(400).json({message: 'Exit not found'});
+    }
+
+    res.status(200).json(exit);
+};
 
 module.exports = {
     createExitPoint,
     getAllExits,
-    getSingleExit
+    getSingleExit,
+    deleteSingleExit,
+    updateSingleExit
 }
