@@ -10,19 +10,13 @@ const {
 
 const router = express.Router()
 
-// GET /api/exits - get all exits
-router.get('/', getAllExits);
+router.route('/')
+    .get(getAllExits)
+    .post(createExitPoint);
 
-// GET /api/exits/:id - get one exit
-router.get('/:id', getSingleExit);
-
-// POST /api/exits - create one exit
-router.post('/', createExitPoint);
-
-// DELETE /api/exits - delete one exit
-router.delete('/:id', deleteSingleExit);
-
-// PUT /api/exits - update one exit
-router.put('/:id', updateSingleExit);
+router.route('/:id')
+    .get(getSingleExit)
+    .delete(deleteSingleExit)
+    .put(updateSingleExit);
 
 module.exports = router;
