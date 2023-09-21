@@ -1,36 +1,23 @@
 const express = require('express');
 const ExitPoint = require('../models/exitModel');
+const { 
+    createExitPoint,
+    getAllExits,
+    getSingleExit,
+    // deleteSingleExit,
+    // updateSingleExit
+} = require('../controllers/exitController');
 
 const router = express.Router()
 
 // GET /api/exits - get all exits
-router.get('/', (req,res) => {
-    res.json({message: 'GET /api/exits - get all exits'})
-});
+router.get('/', getAllExits);
 
 // GET /api/exits/:id - get one exit
-router.get('/:id', (req,res) => {
-    res.json({message: `GET /api/exits/:id - get one exit :id is ${req.params.id}`})
-});
+router.get('/:id', getSingleExit);
 
 // POST /api/exits - create one exit
-router.post('/', async (req,res) => {
-    console.log(req.body);
-    const {name, location, altitude, description, coordinates} = req.body;
-    
-    try {
-        const exit = await ExitPoint.create({
-            name, 
-            location,
-            altitude,
-            description,
-            coordinates 
-        })
-        res.status(200).json(exit)
-    } catch (error) {
-        res.status(400).json({message: error.message})
-    }
-});
+router.post('/', createExitPoint);
 
 // DELETE /api/exits - delete one exit
 router.delete('/:id', (req,res) => {

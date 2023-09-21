@@ -30,20 +30,57 @@ const exitPointSchema = new mongoose.Schema({
         required: true,
       },
     },
+    type: {
+      type: String,
+      enum: ['building', 'antenna', 'span', 'earth'],
+      required: true,
+    },
     jumps: {
       type: Number,
       default: 0,
     },
+    parking: {
+      type: {
+        type: String,
+        enum: ['Point'],
+      },
+      coordinates: {
+        type: [Number],
+      },
+      altitude: {
+        type: Number,
+      },
+    },
+    landing: {
+      type: {
+        type: String,
+        enum: ['Point'],
+      },
+      coordinates: {
+        type: [Number],
+      },
+      altitude: {
+        type: Number
+      },
+    },
+  exitType: [{
+    type: String,
+    enum: ['slider down', 'slider up'],
+    required: true,
+  }],
+  suitRequired: [{
+    type: String,
+    enum: ['slick', 'two-piece tracking suit', 'mono-piece tracking suit', 'wingsuit'],
+  }],
     createdAt: {
       type: Date,
       default: Date.now,
     },
-  });
+  }, { timestamps: true });
   
   // Index the coordinates field for geospatial queries
   exitPointSchema.index({ coordinates: '2dsphere' });
-  
-  // Create a model for the exit points using the schema
+
   module.exports = mongoose.model('ExitPoint', exitPointSchema);
 
   // TEST 
@@ -55,5 +92,18 @@ const exitPointSchema = new mongoose.Schema({
   //   "coordinates": {
   //     "type": "Point",
   //     "coordinates": [-118.789012, 34.123456]
-  //   }
+  //   },
+  //   "type": "earth",
+  //   "jumps": 0,
+  //   "parking": {
+  //     "type": "Point",
+  //     "coordinates": [-118.790000, 34.120000]
+  //   },
+  //   "landing": {
+  //     "type": "Point",
+  //     "coordinates": [-118.787000, 34.125000],
+  //     "altitude": 1600
+  //   },
+  // "exitType": ["slider down", "slider up"],
+  // "trackingSuits": ["slick", "wingsuit"]
   // }
