@@ -1,15 +1,18 @@
 const ExitPoint = require('../models/exitModel');
+const mongoose = require('mongoose');
 
-// get all exits
 const getAllExits = async (req,res) => {
     const exits = await ExitPoint.find({}).sort({name: 1});
 
     res.status(200).json(exits);
 };
 
-// get single exit
 const getSingleExit = async (req,res) => {
     const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({message: 'Exit not found'});
+    }
 
     const exit = await ExitPoint.findById(id);
 
@@ -20,7 +23,6 @@ const getSingleExit = async (req,res) => {
     res.status(200).json(exit);
 };
 
-// create one exit
 const createExitPoint = async (req,res) => {
     console.log(req.body);
     const {
