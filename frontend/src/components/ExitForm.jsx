@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useExitPointsContext } from "../hooks/useExitPointsContext.jsx";
 
 const ExitForm = () => {
+  const { dispatch } = useExitPointsContext();
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -152,6 +154,7 @@ const ExitForm = () => {
       console.log(response.data);
       console.log(response);
       if (response.status == 200) {
+        dispatch({ type: "CREATE_EXITPOINT", payload: response.data });
         setError(null);
         console.log("New exit point created!");
         setFormData({

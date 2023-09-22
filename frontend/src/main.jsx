@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import {BrowserRouter} from 'react-router-dom'
+import { ExitPointContextProvider } from './context/ExitPointContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>
+  <React.StrictMode>
+    <ExitPointContextProvider>
+      <BrowserRouter>
+          <App />
+      </BrowserRouter>
+    </ExitPointContextProvider>
+  </React.StrictMode>
 )

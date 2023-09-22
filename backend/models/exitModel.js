@@ -70,7 +70,7 @@ const exitPointSchema = new mongoose.Schema({
   }],
   suitRequired: [{
     type: String,
-    enum: ['slick', 'two-piece tracking suit', 'mono-piece tracking suit', 'wingsuit'],
+    enum: ['slick', 'two-piece', 'mono-piece', 'wingsuit'],
   }],
     createdAt: {
       type: Date,
