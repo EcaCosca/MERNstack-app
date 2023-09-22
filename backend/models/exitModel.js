@@ -63,9 +63,9 @@ const exitPointSchema = new mongoose.Schema({
         type: Number
       },
     },
-  exitType: [{
+  sliderConfiguration: [{
     type: String,
-    enum: ['slider down', 'slider up'],
+    enum: ['down', 'up'],
     required: true,
   }],
   suitRequired: [{
@@ -104,6 +104,6 @@ const exitPointSchema = new mongoose.Schema({
   //     "coordinates": [-118.787000, 34.125000],
   //     "altitude": 1600
   //   },
-  // "exitType": ["slider down", "slider up"],
-  // "trackingSuits": ["slick", "wingsuit"]
+  // "sliderConfiguration": ["down", "up"],
+  // "suitRequired": ["slick", "wingsuit"]
   // }

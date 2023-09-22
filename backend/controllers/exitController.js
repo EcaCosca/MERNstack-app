@@ -24,19 +24,31 @@ const getSingleExit = async (req,res) => {
 };
 
 const createExitPoint = async (req,res) => {
+    console.log("createExitPoint");
     console.log(req.body);
-    const {
+    let {
         name, 
         location,
         altitude,
         description,
         coordinates,
+        jumps,
         type,
         parking,
         landing,
-        exitType,
+        sliderConfiguration,
         suitRequired
     } = req.body;
+
+    // let altitudeInt = parseInt(altitude);
+    // let jumpsInt = parseInt(jumps);
+    // let landingAltitudeInt = parseInt(landing.altitude);
+    altitude = parseInt(altitude);
+    jumps = parseInt(jumps);
+    landing.altitude = parseInt(landing.altitude);
+    console.log(altitude);
+    console.log(jumps);
+    console.log(landing.altitude);
     
     try {
         const exit = await ExitPoint.create({
@@ -48,7 +60,7 @@ const createExitPoint = async (req,res) => {
             type,
             parking,
             landing,
-            exitType,
+            sliderConfiguration,
             suitRequired
         })
         res.status(200).json(exit)
@@ -84,7 +96,7 @@ const updateSingleExit = async (req,res) => {
         type,
         parking,
         landing,
-        exitType,
+        sliderConfiguration,
         suitRequired
     } = req.body;
 
