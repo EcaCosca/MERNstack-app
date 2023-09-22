@@ -17,8 +17,6 @@ const Home = () => {
 
     if (res.status === 200) {
       dispatch({type: 'SET_EXITPOINTS', payload:res.data})
-      console.log(res.data);
-      console.log(exitPoints);
     }
   };
 
