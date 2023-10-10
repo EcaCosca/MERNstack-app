@@ -2,9 +2,11 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
-
-const exitRoutes = require('./routes/exits')
 const bodyParser = require('body-parser')
+const chalk = require('chalk')
+
+const userRoutes = require('./routes/user')
+const exitRoutes = require('./routes/exits')
 
 
 const app = express()
@@ -23,15 +25,16 @@ app.use((req,res, next) => {
 
 // ROUTES
 app.use('/api/exits',exitRoutes)
+app.use('/api/user',userRoutes)
 
 // DATABASE
 mongoose.connect(process.env.MONGODB_URI)
 .then(() => {
-    console.log('Connected to MongoDB');
+    console.log(chalk.green('Connected to MongoDB'));
     app.listen(port, () => {
-        console.log(`Example app listening at http://localhost:${port}`);
+        console.log(chalk.green(`http://localhost:${port}`));
     })
 })
 .catch((err) => {
-    console.log(err);
+    console.log(chalk.red(err));
 })
