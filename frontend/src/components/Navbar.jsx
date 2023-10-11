@@ -11,8 +11,6 @@ const Navbar = () => {
     logout()
   };
 
-  console.log(user);
-
   return (
     <header>
 
