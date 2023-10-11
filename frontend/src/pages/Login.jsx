@@ -15,14 +15,14 @@ const Login = () => {
     <form className="login" onSubmit={handleSubmit}>
         <h3>Login</h3>
 
-        <lable>Email</lable>
+        <label>Email</label>
         <input 
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder="Enter email"
         />
-        <lable>Password</lable>
+        <label>Password</label>
         <input 
             type="password"
             value={password}
