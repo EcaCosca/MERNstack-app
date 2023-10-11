@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useExitPointsContext } from "../hooks/useExitPointsContext.jsx";
+import { useAuthContext } from '../hooks/useAuthContext.jsx'
+import { set } from "mongoose";
 
 const ExitForm = () => {
   const { dispatch } = useExitPointsContext();
+  const {user} = useAuthContext();
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -118,13 +121,19 @@ const ExitForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if(!user){
+      setError("You must be logged in to create an exit point.")
+      return
+    }
+
     const fullFormData = {
       ...formData,
       coordinates: {
         type: "Point",
         coordinates: [coordinates.latitude, coordinates.longitude],
       },
-      // TODO the type should be a string and not an array only can be one option
+      // TODO the type should be a string and not an array, there only can be one option
       type: type[0],
       landing: {
         type: "Point",
@@ -147,6 +156,7 @@ const ExitForm = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            "Authorization": `Bearer ${user.token}`,
           },
         }
       );

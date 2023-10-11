@@ -20,7 +20,7 @@ const Home = () => {
   const fetchExits = async () => {
     const res = await axios.get('http://localhost:8000/api/exits', {
       headers: {
-        Authorization: `Bearer ${user.token}`,
+        "Authorization": `Bearer ${user.token}`,
       },
     })
 

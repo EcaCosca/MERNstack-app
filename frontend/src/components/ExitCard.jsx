@@ -1,13 +1,23 @@
 import React from 'react'
 import axios from 'axios'
 import { useExitPointsContext } from "../hooks/useExitPointsContext"
+import { useAuthContext } from "../hooks/useAuthContext"
 
 const ExitCard = ({exit, key}) => {
   const {dispatch} = useExitPointsContext()
+  const {user} = useAuthContext();
 
   const handleClick = async () => {
+    if(!user){
+      set
+      return
+    }
     try {
-      const response = await axios.delete(`http://localhost:8000/api/exits/${exit._id}`)
+      const response = await axios.delete(`http://localhost:8000/api/exits/${exit._id}`, {
+        headers: {
+          "Authorization": `Bearer ${user.token}`,
+        },
+      })
       console.log(response);
       if(response.status === 200) {
         // console.log(response.data._id);

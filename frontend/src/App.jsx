@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
+import { useAuthContext } from './hooks/useAuthContext'
 
 // PAGES AND COMPONENTS
 import Home from './pages/Home.jsx'
@@ -13,15 +14,16 @@ import Signup from './pages/Signup'
 
 
 function App() {
+  const { user } = useAuthContext()
 
   return (
     <>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/allExits" element={<AllExits/>} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/signup" element={<Signup/>} />
+        <Route path="/" element={user ? <Home/> : <Navigate to="/login"/>} />
+        <Route path="/allExits" element={user ? <AllExits/> : <Navigate to="/login"/>} />
+        <Route path="/login" element={!user ? <Login/> : <Navigate to="/"/>} />
+        <Route path="/signup" element={!user ? <Signup/> : <Navigate to="/"/>} />
       </Routes>
     </>
   )
