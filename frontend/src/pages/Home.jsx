@@ -1,19 +1,28 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import { useExitPointsContext } from '../hooks/useExitPointsContext.jsx'
+import { useAuthContext } from '../hooks/useAuthContext.jsx'
+
 import ExitCard from '../components/ExitCard.jsx'
 import ExitForm from '../components/ExitForm.jsx'
-import { useExitPointsContext } from '../hooks/useExitPointsContext.jsx'
+
 
 const Home = () => {
-  // const [exits, setExits] = useState(null)
   const { exitPoints, dispatch } = useExitPointsContext()
+  const {user} = useAuthContext();
 
   useEffect(() => {
-    fetchExits()
-  }, [])
+    if(user){
+      fetchExits()
+    }
+  }, [dispatch, user])
 
   const fetchExits = async () => {
-    const res = await axios.get('http://localhost:8000/api/exits')
+    const res = await axios.get('http://localhost:8000/api/exits', {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    })
 
     if (res.status === 200) {
       dispatch({type: 'SET_EXITPOINTS', payload:res.data})
