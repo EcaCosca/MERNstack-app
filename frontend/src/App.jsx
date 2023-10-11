@@ -8,6 +8,9 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import AllExits from './pages/All Exits.jsx'
 import Navbar from './components/Navbar.jsx'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+
 
 function App() {
 
@@ -17,6 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/allExits" element={<AllExits/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<Signup/>} />
       </Routes>
     </>
   )
