@@ -1,9 +1,9 @@
 import { useAuthContext } from './useAuthContext';
-import { useExitPointContext } from './useExitPointsContext';
+import { useExitPointsContext } from './useExitPointsContext';
 
 export const useLogout = () => {
     const { dispatch } = useAuthContext();
-    const { dispatch: exitDispatch } = useExitPointContext();
+    const { dispatch: exitDispatch } = useExitPointsContext();
 
     const logout = async () => {
         // remove user from local storage
