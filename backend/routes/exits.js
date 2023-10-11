@@ -7,8 +7,12 @@ const {
     deleteSingleExit,
     updateSingleExit
 } = require('../controllers/exitController');
+const requireAuth = require('../middleware/requireAuth');
 
 const router = express.Router()
+
+// REQUIRE AUTHENTICATION FOR ALL ROUTES
+router.use(requireAuth);
 
 router.route('/')
     .get(getAllExits)
