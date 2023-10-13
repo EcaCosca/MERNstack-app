@@ -4,7 +4,7 @@ import { useExitPointsContext } from "../hooks/useExitPointsContext.jsx";
 import { useAuthContext } from '../hooks/useAuthContext.jsx'
 import { set } from "mongoose";
 
-const ExitForm = () => {
+export const ExitForm = () => {
   const { dispatch } = useExitPointsContext();
   const {user} = useAuthContext();
   const [formData, setFormData] = useState({
@@ -456,4 +456,4 @@ const ExitForm = () => {
   );
 };
 
-export default ExitForm;
+

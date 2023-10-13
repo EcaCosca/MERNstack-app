@@ -4,9 +4,10 @@ import { useExitPointsContext } from '../hooks/useExitPointsContext.jsx'
 import { useAuthContext } from '../hooks/useAuthContext.jsx'
 
 import ExitCard from '../components/ExitCard.jsx'
+import ExitForm from '../components/ExitForm.jsx'
 
 
-const Home = () => {
+const SingleExit = () => {
   const { exitPoints, dispatch } = useExitPointsContext()
   const {user} = useAuthContext();
 
@@ -31,13 +32,14 @@ const Home = () => {
   return (
     <div className="home">
         <div className="exits">
-        <h1>Welcome to AeroSapiens</h1>
-        {exitPoints && exitPoints.map((exit) => (
+        <h1>Closest Exits</h1>
+        {/* {exitPoints && exitPoints.map((exit) => (
             <ExitCard exit={exit} key={exit._id} />
-        ))}
+        ))} */}
+        <ExitForm />
         </div>
     </div>
   )
 }
 
-export default Home
+export default SingleExit

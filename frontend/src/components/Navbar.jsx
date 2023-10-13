@@ -17,9 +17,11 @@ const Navbar = () => {
         <div className='container'>
             <Link to='/' className='logo'>Exit Point</Link>
             <Link to='/allExits' className='logo'>All Exits</Link>
+            <Link to='/addExit' className='logo'>Add Exit</Link>
             <nav>
               {user ? (<div>
-                <span>{user?.user.email}</span>
+                <Link to='/user' className='logo'>{user?.user.email}</Link>
+                {/* <span>{user?.user.email}</span> */}
                 <button onClick={handleClick} className='logo'>Log out</button>
               </div>)
               :
