@@ -7,12 +7,21 @@ const useQuery = (url) => {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-
+        fetchData()
     }, [])
+    
+    const fetchData = async () => {
+        setLoading(true)
+        try {
+            const res = await axios.get(url)
+            setData(res.data)
+            setLoading(false)
+        } catch (err) {
+            setError(err)
+        }
+    }
 
-  return (
-    <div>useQuery</div>
-  )
+  return {data, loading, error}
 }
 
 export default useQuery
