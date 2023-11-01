@@ -6,16 +6,22 @@
 
 **AirTool** is an innovative platform designed exclusively for skydivers and BASE jumpers, catering to their unique needs in the extreme sports community. This application offers a streamlined and intuitive experience, enabling enthusiasts to create personalized profiles, log their jumps with detailed information, and engage in vibrant social interactions with fellow jumpers. With a focus on simplicity and functionality, AirTool aims to enhance the way skydivers and BASE jumpers connect, share experiences, and explore new horizons in the thrilling world of aerial sports.
 
+## Target Audience
+
+AirTool is tailored for passionate skydivers and BASE jumpers who crave a user-friendly platform to document their experiences, connect with like-minded individuals, and stay updated on the latest trends and discussions within the community.
+
 ## Key Features
 
 - **User Profiles:** Quickly create profiles with essential information to get started.
 - **Jump Logging:** Seamlessly log jumps with precise details, including approach and exit coordinates, landing zone coordinates, altitude, and descriptions.
-- **Social Interactions:** Foster community engagement through chat functionality and forum-like discussions.
+- **Social Interactions:** Foster community engagement through chat functionality and forum-like discussions. Share experiences, tips, and stories with fellow jumpers.
 - **Content Moderation:** User-generated content is self-moderated by the community, ensuring a respectful and supportive environment.
-
-## Target Audience
-
-AirTool is tailored for passionate skydivers and BASE jumpers who crave a user-friendly platform to document their experiences, connect with like-minded individuals, and stay updated on the latest trends and discussions within the community.
+- **Third-Party Authentication:** Users can sign up and log in using their email or third-party authentication services like Google and Apple, facilitated through Clerk.
+- **Track Management:** Add, edit, and delete individual jump tracks with specific details. Each track represents a unique jump experience, capturing approach and exit coordinates, landing zone coordinates, altitude, and descriptions.
+- **Exit Point Management:** Manage exit points representing different locations (such as cliffs, buildings, or other stationary structures) from which jumps can be made. Plan jumps effectively with curated information.
+- **Drop Zone Exploration:** Explore drop zones representing locations where jumps are made from aircraft or helicopters. Choose a suitable jumping experience based on curated information within the application.
+- **Weather Information:** Access real-time weather information about exit points and drop zones. Make informed decisions about jumps and ensure safety with up-to-date weather data.
+- **FlySight Integration:** Upload tracks collected by the GPS tracking device FlySight. Analyze and store jump data conveniently within the application for further review and planning.
 
 ## Why AirTool?
 
@@ -30,6 +36,7 @@ AirTool is tailored for passionate skydivers and BASE jumpers who crave a user-f
 - [Backend Routes](#backend-routes)
 - [Server/Backend](#serverbackend)
 - [Project Management and Documentation](#project-management-and-documentation)
+- [Stack Documentation](#stack-documentation)
 
 ### User Stories
 
