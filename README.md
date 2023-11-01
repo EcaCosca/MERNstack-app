@@ -118,10 +118,9 @@ AirTool is tailored for passionate skydivers and BASE jumpers who crave a user-f
 
 [Link to your Trello board](https://trello.com/b/PBqtkUFX/curasan) or picture of your physical board.
 
-### Git Repositories
+### GitHub Repository
 
-- [Client Repository Link](https://github.com/screeeen/project-client)
-- [Server Repository Link](https://github.com/screeeen/project-server)
+- [Repository Link](https://github.com/EcaCosca/MERNstack-app)
 
 ### Deployment
 
@@ -133,4 +132,21 @@ AirTool is tailored for passionate skydivers and BASE jumpers who crave a user-f
 
 ### Wireframe
 
-[Figma Link](http://www.figma.com/file/GNvDVBD1NPTydU2PJy4DDM/dataBASE?node-id=0%3A88)
+- [Figma Link](http://www.figma.com/file/GNvDVBD1NPTydU2PJy4DDM/dataBASE?node-id=0%3A88)
+
+### External API Documentation
+
+- [Windy API Documentation](https://api.windy.com/)
+
+### Stack Documentation
+
+- [React Documentation](https://react.dev/)
+- [Vite Documentation](https://vitejs.dev/guide/)
+- [React Router Documentation](https://reactrouter.com/en/main)
+- [Tailwind CSS Documentation](https://tailwindcss.com/)
+- [ShadcnUI Documentation for Components](https://ui.shadcn.com/)
+- [Clerk Documentation for Auth Services](https://clerk.com/)
+- [Node.js Documentation](https://nodejs.org/en/docs/)
+- [Express.js Documentation](https://expressjs.com/)
+- [Nodemon Documentation](https://nodemon.io/)
+- [MongoDB Documentation](https://docs.mongodb.com/)
