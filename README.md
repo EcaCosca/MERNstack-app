@@ -73,21 +73,6 @@ AirTool is tailored for passionate skydivers and BASE jumpers who crave a user-f
 - **Frontend:** React.js, React Router for navigation, Tailwind CSS for responsive designs.
 - **Backend:** Node.js, Express.js, MongoDB for database management.
 
-## Backend Routes
-
-| HTTP Method | URL            | Request Body                                                 | Success Status | Error Status | Description                                                  |
-| ----------- | -------------- | ------------------------------------------------------------ | -------------- | ------------ | ------------------------------------------------------------ |
-| GET         | `/auth/me`     |                                                              | 200            | 404          | Check if user is logged in and return profile page           |
-| POST        | `/auth/signup` | {username, email, password}                                  | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
-| POST        | `/auth/login`  | {username, password}                                         | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
-| POST        | `/auth/logout` | (empty)                                                      | 204            | 400          | Logs out the user                                            |
-| POST        | `/api/jump`    | {name, aproachLat, aproachLong, aproachDescription, exitLat, exitLong, exitDescription, landingZoneLat, landingZoneLong, landingZoneDescription, altitude} |                |              | Used to create one jump document, using current logged in user id as a creator. |
-| PUT         | `/api/jump/:id`| {name, aproachLat, aproachLong, aproachDescription, exitLat, exitLong, exitDescription, landingZoneLat, landingZoneLong, landingZoneDescription, altitude} |                |              | Used to update one jump document by id                        |
-| GET         | `/api/jump/:id`|                                                              |                |              | Used to get one jump document by id                           |
-| DELETE      | `/api/jump/:id`|                                                              |                |              | Used to delete one jump document by id                        |
-| GET         | `/api/user`    |                                                              |                |              | Used to get current user's profile. Id of the user is coming from the req.session.currentUser |
-| PUT         | `/api/user`    | {username, email, password}                                  |                |              | Used to update current user's profile. Id of the user is coming from the req.session.currentUser |
-
 ## Server/Backend
 
 ### Models
@@ -119,6 +104,26 @@ AirTool is tailored for passionate skydivers and BASE jumpers who crave a user-f
 }
 ```
 
+#### Track
+
+```javascript
+{
+  // Define track properties here
+}
+```
+
+#### Drop Zone
+
+```javascript
+{
+  name: {type: String, required: true, trim: true},
+  latitude: {type: Number, required: true},
+  longitude: {type: Number, required: true},
+  description: {type: String, trim: true},
+  type: {type: String, enum: ['aircraft', 'helicopter'], required: true},
+  // Define other drop zone properties here
+}
+```
 ## Backend Routes
 
 ### Users
@@ -150,13 +155,14 @@ AirTool is tailored for passionate skydivers and BASE jumpers who crave a user-f
 | GET         | `/api/exitpoints/:id` |                                                                                                                       | 200            | 404          | Check if the exit point with the given ID exists (404). If it does, retrieve the exit point details and return them to the client. If not, return a 404 error.     |
 | DELETE      | `/api/exitpoints/:id` |                                                                                                                       | 204            | 404, 401     | Check if the exit point with the given ID exists (404). Check if the user is logged in (401). If both conditions are met, delete the exit point document with the provided ID. Return a 204 status upon successful deletion. If the exit point does not exist, return a 404 error. |
 
-### Drop Zones
+## Drop Zones
 
 | HTTP Method | URL                   | Request Body                                                                                           | Success Status | Error Status | Description                                                                                          |
 | ----------- | --------------------- | ------------------------------------------------------------------------------------------------------- | -------------- | ------------ | ---------------------------------------------------------------------------------------------------- |
 | POST        | `/api/dropzones`      | `{ name, latitude, longitude, description, type, userId }`                                                | 201            | 422, 401     | Validate if the required fields are not empty (422). Check if the user is logged in (401). Create a new drop zone document with the provided details and associate it with the user. Return a success message along with the created drop zone document. |
-| PUT         | `/api/dropzones/:id`  | `{ name, latitude, longitude, description, type }`                                                        | 200            | 400, 401     | Validate if the required fields are not empty (422). Check if the user is logged in (401). Check if the drop zone with the given ID exists (404). If it does, update the drop
-## Project Management and Documentation
+| PUT         | `/api/dropzones/:id`  | `{ name, latitude, longitude, description, type }`                                                        | 200            | 400, 401     | Validate if the required fields are not empty (422). Check if the user is logged in (401). Check if the drop zone with the given ID exists (404). If it does, update the drop zone document with the provided details. Return the updated drop zone document. If the drop zone does not exist, return a 404 error. |
+| GET         | `/api/dropzones/:id`  |                                                                                                       | 200            | 404          | Check if the drop zone with the given ID exists (404). If it does, retrieve the drop zone details and return them to the client. If not, return a 404 error.     |
+| DELETE      | `/api/dropzones/:id`  |                                                                                                       | 204            | 404, 401     | Check if the drop zone with the given ID exists (404). Check if the user is logged in (401). If both conditions are met, delete the drop zone document with the provided ID. Return a 204 status upon successful deletion. If the drop zone does not exist, return a 404 error. |
 
 ### Trello/Kanban
 
