@@ -31,16 +31,30 @@ AirTool is tailored for passionate skydivers and BASE jumpers who crave a user-f
 - [Server/Backend](#serverbackend)
 - [Project Management and Documentation](#project-management-and-documentation)
 
-## User Stories
+### User Stories
 
-- **Signup:** Anonymous users can sign up to create profiles and participate in the community. Users have the option to sign up using their email or utilize third-party authentication services such as Google and Apple, facilitated through Clerk.
-- **Login:** Registered users can log in to access their profiles and track their jumps. Users can securely log in using their registered credentials or third-party authentication methods.
-- **Logout:** Users can log out securely from the platform, ensuring the security of their accounts and information.
-- **Add, Edit, and Delete Tracks:** Users can add, edit, and delete individual jump tracks with specific details. Each track represents a unique jump experience, capturing approach and exit coordinates, landing zone coordinates, altitude, and descriptions.
-- **Manage Exit Points:** Users can add, edit, and delete exit points, representing individual locations from which jumps can be made, be it cliffs, buildings, or other stationary structures.
-- **Explore Drop Zones:** Users can explore drop zones, which represent locations where jumps are made from aircraft or helicopters. Drop zones offer a different jumping experience and are curated within the application.
-- **Social Interactions:** Users can engage in vibrant social interactions, including chat functionality and forum-like discussions. This fosters a sense of community and allows users to share experiences, tips, and stories with fellow jumpers.
-- **View Jump Details:** Users can access comprehensive information about each jump, including approach coordinates, exit coordinates, landing zone coordinates, altitude, and detailed descriptions. This data is crucial for jumpers to analyze their experiences and plan future jumps effectively.
+- **Signup:** 
+  - *As an anonymous user, I want to sign up using my email or third-party authentication services like Google and Apple through Clerk so that I can create a profile and participate in the community.*
+- **Login:** 
+  - *As a registered user, I want to log in securely using my registered credentials or third-party authentication methods so that I can access my profile and track my jumps.*
+- **Logout:** 
+  - *As a user, I want to log out securely from the platform to ensure the security of my accounts and information.*
+- **Add, Edit, and Delete Tracks:** 
+  - *As a user, I want to add, edit, and delete individual jump tracks with specific details (including approach and exit coordinates, landing zone coordinates, altitude, and descriptions) so that I can document my unique jump experiences.*
+- **Manage Exit Points:** 
+  - *As a user, I want to add, edit, and delete exit points representing different locations (such as cliffs, buildings, or other stationary structures) from which jumps can be made. This allows me to plan my jumps effectively.*
+- **Explore Drop Zones:** 
+  - *As a user, I want to explore drop zones representing locations where jumps are made from aircraft or helicopters. I need this information to choose a suitable jumping experience.*
+- **Access Weather Information:** 
+  - *As a user, I want to access weather information about exit points and drop zones. Having access to real-time weather data helps me make informed decisions about my jumps and ensures my safety.*
+- **Upload Tracks from FlySight Device:** 
+  - *As a user, I want to upload tracks collected by my GPS tracking device, FlySight, so that I can analyze and store my jump data conveniently within the application.*
+- **Social Interactions:** 
+  - *As a user, I want to engage in vibrant social interactions, including chat functionality and forum-like discussions. This enables me to connect with the community, share experiences, and learn from fellow jumpers.*
+- **View Jump Details:** 
+  - *As a user, I want to access comprehensive information about each jump, including approach coordinates, exit coordinates, landing zone coordinates, altitude, detailed descriptions, and real-time weather conditions. This data is crucial for analyzing my experiences and planning future jumps effectively.*
+- **Edit User Profile:** 
+  - *As a user, I want to have the flexibility to edit my profile, managing personal information, jump records, and GPS tracks. This ensures that my profile is up-to-date and reflective of my jumping experiences.*
 
 ## Features
 - **User Profiles:** Users can create profiles with minimal information for quick setup.
