@@ -1,10 +1,27 @@
 # AirTool
 
-![AirTool Logo](/Users/enriquecoscarelli/Downloads/minilogo.png)
+![AirTool Logo](/path/to/your/logo.png)
 
 ## Project Overview
 
-**AirTool** is a specialized platform designed exclusively for skydivers and BASE jumpers. This application provides essential features tailored to these extreme sports enthusiasts, allowing them to create profiles, log their jumps, and engage in social interactions with fellow jumpers. The platform emphasizes simplicity, focusing on the core needs of the skydiving and BASE jumping communities.
+**AirTool** is an innovative platform designed exclusively for skydivers and BASE jumpers, catering to their unique needs in the extreme sports community. This application offers a streamlined and intuitive experience, enabling enthusiasts to create personalized profiles, log their jumps with detailed information, and engage in vibrant social interactions with fellow jumpers. With a focus on simplicity and functionality, AirTool aims to enhance the way skydivers and BASE jumpers connect, share experiences, and explore new horizons in the thrilling world of aerial sports.
+
+## Key Features
+
+- **User Profiles:** Quickly create profiles with essential information to get started.
+- **Jump Logging:** Seamlessly log jumps with precise details, including approach and exit coordinates, landing zone coordinates, altitude, and descriptions.
+- **Social Interactions:** Foster community engagement through chat functionality and forum-like discussions.
+- **Content Moderation:** User-generated content is self-moderated by the community, ensuring a respectful and supportive environment.
+
+## Target Audience
+
+AirTool is tailored for passionate skydivers and BASE jumpers who crave a user-friendly platform to document their experiences, connect with like-minded individuals, and stay updated on the latest trends and discussions within the community.
+
+## Why AirTool?
+
+- **Simplified Experience:** AirTool focuses on the core needs of skydivers and BASE jumpers, eliminating clutter and providing a straightforward interface.
+- **Community-Centric:** Foster a sense of belonging by enabling users to interact, share stories, and learn from one another.
+- **Data Precision:** Log jumps with precision and accuracy, allowing jumpers to maintain a comprehensive record of their aerial adventures.
 
 ## Table of Contents
 - [User Stories](#user-stories)
@@ -15,13 +32,15 @@
 - [Project Management and Documentation](#project-management-and-documentation)
 
 ## User Stories
-- **Signup:** Anonymous users can sign up to create profiles and participate in the community.
-- **Login:** Registered users can log in to access their profiles and track their jumps.
-- **Logout:** Users can log out securely from the platform.
-- **Add, Edit, and Delete Jumps:** Users can add, edit, and delete jump locations with specific details.
-- **Social Interactions:** Users can engage in social interactions, including chat and forum-like discussions.
-- **View Jump Details:** Users can view detailed information about each jump, including approach coordinates, exit coordinates, landing zone coordinates, altitude, and descriptions.
-- **Edit User Profile:** Users can edit their profiles and manage their jump records.
+
+- **Signup:** Anonymous users can sign up to create profiles and participate in the community. Users have the option to sign up using their email or utilize third-party authentication services such as Google and Apple, facilitated through Clerk.
+- **Login:** Registered users can log in to access their profiles and track their jumps. Users can securely log in using their registered credentials or third-party authentication methods.
+- **Logout:** Users can log out securely from the platform, ensuring the security of their accounts and information.
+- **Add, Edit, and Delete Tracks:** Users can add, edit, and delete individual jump tracks with specific details. Each track represents a unique jump experience, capturing approach and exit coordinates, landing zone coordinates, altitude, and descriptions.
+- **Manage Exit Points:** Users can add, edit, and delete exit points, representing individual locations from which jumps can be made, be it cliffs, buildings, or other stationary structures.
+- **Explore Drop Zones:** Users can explore drop zones, which represent locations where jumps are made from aircraft or helicopters. Drop zones offer a different jumping experience and are curated within the application.
+- **Social Interactions:** Users can engage in vibrant social interactions, including chat functionality and forum-like discussions. This fosters a sense of community and allows users to share experiences, tips, and stories with fellow jumpers.
+- **View Jump Details:** Users can access comprehensive information about each jump, including approach coordinates, exit coordinates, landing zone coordinates, altitude, and detailed descriptions. This data is crucial for jumpers to analyze their experiences and plan future jumps effectively.
 
 ## Features
 - **User Profiles:** Users can create profiles with minimal information for quick setup.
