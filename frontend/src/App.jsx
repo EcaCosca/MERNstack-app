@@ -13,7 +13,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import AddExit from './pages/Add Exit'
 import UserProfile from './pages/UserProfile'
-import LandingPage from './pages/LandingPage'
+import AerosapiensLandingPage from './pages/Landing Page/AerosapiensLandingPage'
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
     <>
       <Navbar/>
       <Routes>
-        <Route path="/" element={user ? <Home/> : <LandingPage/>} />
+        <Route path="/" element={user ? <Home/> : <AerosapiensLandingPage/>} />
         <Route path="/allExits" element={user ? <AllExits/> : <Navigate to="/login"/>} />
         <Route path="/addExit" element={user ? <AddExit/> : <Navigate to="/login"/>} />
         <Route path="/user" element={user ? <UserProfile/> : <Navigate to="/login"/>} />
