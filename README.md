@@ -196,6 +196,7 @@ AirTool is tailored for passionate skydivers and BASE jumpers who crave a user-f
 - [Tailwind CSS Documentation](https://tailwindcss.com/)
 - [ShadcnUI Documentation for Components](https://ui.shadcn.com/)
 - [Clerk Documentation for Auth Services](https://clerk.com/)
+- [Mapbox Documentation for React](https://visgl.github.io/react-map-gl/)
 - [Node.js Documentation](https://nodejs.org/en/docs/)
 - [Express.js Documentation](https://expressjs.com/)
 - [Nodemon Documentation](https://nodemon.io/)
