@@ -10,6 +10,8 @@ const getAllExits = async (req,res) => {
 const getSingleExit = async (req,res) => {
     const { id } = req.params;
 
+    console.log(id);
+
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({message: 'Not a valid ID'});
     }

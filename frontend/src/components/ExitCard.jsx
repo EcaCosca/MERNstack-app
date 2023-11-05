@@ -1,27 +1,26 @@
-import React from 'react'
-import axios from 'axios'
-import { useExitPointsContext } from "../hooks/useExitPointsContext"
-import { useAuthContext } from "../hooks/useAuthContext"
+import React from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { useExitPointsContext } from '../hooks/useExitPointsContext';
+import { useAuthContext } from '../hooks/useAuthContext';
 
-const ExitCard = ({exit, key}) => {
-  const {dispatch} = useExitPointsContext()
-  const {user} = useAuthContext();
+const ExitCard = ({ exit }) => {
+  const { dispatch } = useExitPointsContext();
+  const { user } = useAuthContext();
 
   const handleClick = async () => {
-    if(!user){
-      set
-      return
+    if (!user) {
+      // Handle user not authenticated scenario here if needed
+      return;
     }
     try {
       const response = await axios.delete(`http://localhost:8000/api/exits/${exit._id}`, {
         headers: {
-          "Authorization": `Bearer ${user.token}`,
+          Authorization: `Bearer ${user.token}`,
         },
-      })
-      console.log(response);
-      if(response.status === 200) {
-        // console.log(response.data._id);
-        dispatch({type: 'DELETE_EXITPOINT', payload: exit._id})
+      });
+      if (response.status === 200) {
+        dispatch({ type: 'DELETE_EXITPOINT', payload: exit._id });
       }
     } catch (error) {
       console.log(error);
@@ -29,20 +28,20 @@ const ExitCard = ({exit, key}) => {
   };
 
   return (
-    <div className="exit-details" key={exit._id}>
-        <h4>{exit.name.toUpperCase()}</h4>
-        {/* <p>{exit.location}</p> */}
-        <p>Altitude: {exit.altitude}</p>
-        <p>Description: {exit.description}</p>
-        {/* <p>{exit.coordinates}</p> */}
-        <p>Type of jump: {exit.type.toUpperCase()}</p>
-        {/* <p>{exit.parking}</p> */}
-        {/* <p>{exit.landing}</p> */}
-        {/* <p>Slider Configuration: {exit.exitType}</p> */}
-        {/* <p>{exit.suitRequired}</p> */}
-        <span onClick={handleClick}>Delete</span>
+    <div className="bg-white shadow-md p-6 rounded-lg mb-4">
+      <Link to={`/exit/${exit._id}`}>
+        <h4 className="text-xl font-semibold text-gray-800 mb-2">{exit.name.toUpperCase()}</h4>
+      </Link>
+      <p className="text-gray-600 mb-2">Altitude: {exit.altitude}</p>
+      <p className="text-gray-600 mb-2">Description: {exit.description}</p>
+      <p className="text-gray-600 mb-2">Type of jump: {exit.type.toUpperCase()}</p>
+      {user && (
+        <button className="text-red-500 hover:text-red-700 cursor-pointer" onClick={handleClick}>
+          Delete
+        </button>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default ExitCard
+export default ExitCard;

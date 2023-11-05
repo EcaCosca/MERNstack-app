@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useExitPointsContext } from '../hooks/useExitPointsContext.jsx'
 import { useAuthContext } from '../hooks/useAuthContext.jsx'
